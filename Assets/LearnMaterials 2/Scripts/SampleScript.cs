@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SampleScript : MonoBehaviour
+public abstract class SampleScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void Use()
-    {
-        
-    }
+    public abstract void Use();
 }

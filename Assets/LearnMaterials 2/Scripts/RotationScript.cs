@@ -11,7 +11,7 @@ public class RotationScript : SampleScript
     public Transform beginRotation;
 
     [ContextMenu("Запуск программы Rotation")]
-    new public void Use()
+    override public void Use()
     {
         startProgramm = true;
     }

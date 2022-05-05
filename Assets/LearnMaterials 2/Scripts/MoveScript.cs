@@ -9,7 +9,7 @@ public class MoveScript : SampleScript
     public Vector3 endPosition = new Vector3(0, 0, 0);
 
     [ContextMenu("Запуск программы Move")]
-    new public void Use()
+    override public void Use()
     {
         beginPosition = this.transform;
         startProgramm = true;
