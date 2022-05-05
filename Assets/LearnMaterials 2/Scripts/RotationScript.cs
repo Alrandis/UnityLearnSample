@@ -6,9 +6,18 @@ public class RotationScript : SampleScript
 {
     private bool startProgramm;
     public float speed = 0;
-    public float xAngle;
-    public float rotate;
+    private float xAngle;
+    private float yAngle;
+    private float zAngle;
+    public float xRotate;
+    public float yRotate;
+    public float zRotate;
     public Transform beginRotation;
+
+    private void Awake()
+    {
+        beginRotation = this.transform;
+    }
 
     [ContextMenu("Запуск программы Rotation")]
     override public void Use()
@@ -21,11 +30,10 @@ public class RotationScript : SampleScript
     {
         if (startProgramm)
         {
-            if (xAngle < rotate)
-            {
-                xAngle += Time.deltaTime * speed;
-                transform.rotation = Quaternion.Euler(xAngle, 0, 0);
-            }
+            if (xAngle < xRotate) { xAngle += Time.deltaTime * speed; }
+            if (yAngle < yRotate) { yAngle += Time.deltaTime * speed; }
+            if (zAngle < zRotate) { zAngle += Time.deltaTime * speed; }
+            transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);
         }
     }
 }

@@ -8,10 +8,14 @@ public class MoveScript : SampleScript
     [SerializeField] private Transform beginPosition;
     public Vector3 endPosition = new Vector3(0, 0, 0);
 
+    private void Awake()
+    {
+        beginPosition = this.transform;
+    }
+
     [ContextMenu("Запуск программы Move")]
     override public void Use()
     {
-        beginPosition = this.transform;
         startProgramm = true;
     }
 
