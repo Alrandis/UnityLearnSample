@@ -22,6 +22,7 @@ public class RotationScript : SampleScript
     [ContextMenu("Запуск программы Rotation")]
     override public void Use()
     {
+        beginRotation = this.transform;
         startProgramm = true;
     }
 

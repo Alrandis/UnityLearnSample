@@ -16,6 +16,7 @@ public class MoveScript : SampleScript
     [ContextMenu("Запуск программы Move")]
     override public void Use()
     {
+        beginPosition = this.transform;
         startProgramm = true;
     }
 

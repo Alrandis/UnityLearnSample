@@ -13,14 +13,15 @@ public class ContainerScripts : MonoBehaviour
 
     private void Awake()
     {
-        container.Add(rs);
-        container.Add(ms);
-        container.Add(del);
-        container.Add(cs);
+      
     }
-
+    [ContextMenu("Start")]
     void Start()
     {
+        container.Add(rs);
+        container.Add(ms);
+        container.Add(cs);
+        container.Add(del);
         for (int i = 0; i < 4; i++)
         {
             container[i].Use();
