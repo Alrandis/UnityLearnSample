@@ -2,27 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ContainerScripts : MonoBehaviour
+public class ContainerScripts : SampleScript
 {
-    public RotationScript rs;
-    public MoveScript ms;
-    public Delete del;
-    public ClonScript cs;
-
     public List<SampleScript> container = new List<SampleScript>();
 
-    private void Awake()
+    [ContextMenu("Запуск менеджера скриптов")]
+    public override void Use()
     {
-      
-    }
-    [ContextMenu("Start")]
-    void Start()
-    {
-        container.Add(rs);
-        container.Add(ms);
-        container.Add(cs);
-        container.Add(del);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < container.Count; i++)
         {
             container[i].Use();
         }
