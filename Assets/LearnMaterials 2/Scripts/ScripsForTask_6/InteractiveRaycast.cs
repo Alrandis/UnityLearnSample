@@ -4,15 +4,46 @@ using UnityEngine;
 
 public class InteractiveRaycast : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject prefab;
+    private InteractiveBox box;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit))
+            {
+                if (hit.collider.CompareTag("InteractivePlane"))
+                {
+                    Instantiate(prefab, hit.point + hit.normal, Quaternion.identity);
+                }
+
+                if (hit.collider.CompareTag("InteractiveBox"))
+                {
+                    InteractiveBox curBox = hit.collider.GetComponent<InteractiveBox>();
+                    if (box == null)
+                    {
+                        box = curBox;
+                    }
+                    else
+                    {
+                        box.AddNext(curBox);
+                    }
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit))
+            {
+                if (hit.collider.CompareTag("InteractiveBox"))
+                {
+                    Destroy(hit.transform.parent.gameObject);
+                }
+            }
+        }
     }
 }
