@@ -34,7 +34,7 @@ public class InteractiveRaycast : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit))
